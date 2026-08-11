@@ -1,21 +1,35 @@
-const express=require('express');
-const app=express();
-const PORT=3000;
-app.get('/',(req,res)=>{
-    res.send('<h1>Welcome SVECW!</h1><p>You have reached the home page.</p>');
+const express = require('express');
+
+const app = express();
+
+const PORT = 3000;
+
+
+// HOME ROUTE
+app.get('/', (req, res) => {
+    res.send('Welcome to svecw!');
 });
-app.get('/about',(req,res)=>{
-    res.send('this server was built as a learning exercise for express.js by SVECW AI Department');
+
+
+// ABOUT ROUTE
+app.get('/about', (req, res) => {
+    res.send('This server was built as a learning exercise for Express.js.');
 });
-app.get('/api/status',(req,res)=>{
+
+
+// DATA (JSON) ROUTE
+app.get('/api/status', (req, res) => {
     res.json({
-        active:true,
-        version:"1.0.0",
-        message:"the server is healthy and responding!"
+        active: true,
+        version: '1.0.0',
+        message: 'The server is healthy and responding'
     });
 });
-app.listen(PORT,()=>{
-    console.log(`sucess!server is running at http://localhost:${PORT}`);
-    console.log('press Ctrl+C to stop the server');
+
+
+// STARTING THE SERVER
+app.listen(PORT, () => {
+    console.log(`Success! Server is running at http://localhost:${PORT}`);
+    console.log('Press Ctrl+C to stop the server.');
 });
 
